@@ -5,6 +5,8 @@
  */
 package resturant_s;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author PKS
@@ -16,7 +18,15 @@ public class Resturants extends javax.swing.JFrame {
      */
     public Resturants() {
         initComponents();
+        
     }
+    //Data members for the calculator
+    static double firstnum = 0;
+    static double secondnum = 0;
+    static double result = 0;
+    static String operation = " ";
+    static String EnteredNumber;
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,6 +50,10 @@ public class Resturants extends javax.swing.JFrame {
         jCheckBox5 = new javax.swing.JCheckBox();
         panel2 = new java.awt.Panel();
         panel3 = new java.awt.Panel();
+        jComboBox2 = new javax.swing.JComboBox();
+        jTextField4 = new javax.swing.JTextField();
+        CnvertBtn = new javax.swing.JButton();
+        CloseBtn = new javax.swing.JButton();
         panel4 = new java.awt.Panel();
         panel6 = new java.awt.Panel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -155,15 +169,42 @@ public class Resturants extends javax.swing.JFrame {
 
         panel3.setBackground(new java.awt.Color(204, 204, 255));
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose One item", "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        CnvertBtn.setText("Convert");
+
+        CloseBtn.setText("Close");
+
         javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
         panel3.setLayout(panel3Layout);
         panel3Layout.setHorizontalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 223, Short.MAX_VALUE)
+            .addGroup(panel3Layout.createSequentialGroup()
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel3Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField4)))
+                    .addGroup(panel3Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(CnvertBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(CloseBtn)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         panel3Layout.setVerticalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 139, Short.MAX_VALUE)
+            .addGroup(panel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CnvertBtn)
+                    .addComponent(CloseBtn))
+                .addContainerGap())
         );
 
         panel4.setBackground(new java.awt.Color(153, 204, 255));
@@ -195,7 +236,6 @@ public class Resturants extends javax.swing.JFrame {
         jTabbedPane1.addTab("Receiept", jPanel3);
 
         jTXTDisplay1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTXTDisplay1.setText("0");
 
         jBtn8.setText("8");
         jBtn8.addActionListener(new java.awt.event.ActionListener() {
@@ -465,7 +505,7 @@ public class Resturants extends javax.swing.JFrame {
         panel5.setLayout(panel5Layout);
         panel5Layout.setHorizontalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -483,22 +523,20 @@ public class Resturants extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25))
+                            .addComponent(panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(panel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(panel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(panel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
@@ -533,78 +571,165 @@ public class Resturants extends javax.swing.JFrame {
 
     private void jBtnEqualActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
+        
+         secondnum = Double.valueOf(jTXTDisplay1.getText());
+         //JOptionPane.showMessageDialog(null, String.valueOf(secondnum));
+        
+        if("+".equals(operation)){
+            result = (double)firstnum+secondnum;
+        }
+        else if("-".equals(operation))
+        {
+            result = (double)firstnum-secondnum;
+        }
+        else if("x".equals(operation))
+        {
+            result =(double) firstnum*secondnum;
+        }else if("/".equals(operation))
+        {
+            result =(double) firstnum/secondnum;
+        }
+   
+        
+        //TxtVal.setText(String.valueOf(result));
+        jTXTDisplay1.setText(String.valueOf(result));
+        //TxtVal.setText("");
     }                                         
 
     private void jBtnClearActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
+         jTXTDisplay1.setText(null);
     }                                         
 
     private void jBtn7ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        EnteredNumber = jTXTDisplay1.getText()+jBtn7.getText();
+        jTXTDisplay1.setText(EnteredNumber);
+        
     }                                     
 
     private void jBtn8ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        
+         EnteredNumber = jTXTDisplay1.getText()+jBtn8.getText();
+        jTXTDisplay1.setText(EnteredNumber);
     }                                     
 
     private void jBtn9ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        
+         EnteredNumber = jTXTDisplay1.getText()+jBtn9.getText();
+        jTXTDisplay1.setText(EnteredNumber);
     }                                     
 
     private void jButtonRmvActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
+        //Removes a single charecter
+        String st=jTXTDisplay1.getText();
+        
+        if(st.length()>0){
+        st= st.substring(0, st.length()-1);
+        
+        jTXTDisplay1.setText(st);
+        }
     }                                          
 
     private void jBtn4ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        
+         EnteredNumber = jTXTDisplay1.getText()+jBtn4.getText();
+        jTXTDisplay1.setText(EnteredNumber);
     }                                     
 
     private void jBtn5ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+         EnteredNumber = jTXTDisplay1.getText()+jBtn5.getText();
+        jTXTDisplay1.setText(EnteredNumber);
     }                                     
 
     private void jBtn6ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        
+         EnteredNumber = jTXTDisplay1.getText()+jBtn6.getText();
+        jTXTDisplay1.setText(EnteredNumber);
     }                                     
 
     private void jBtnminusActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
+        operation = jBtnminus.getText();
+        
+        firstnum = Double.valueOf(jTXTDisplay1.getText());
+        jTXTDisplay1.setText("");
     }                                         
 
     private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        
+         EnteredNumber = jTXTDisplay1.getText()+jBtn1.getText();
+        jTXTDisplay1.setText(EnteredNumber);
     }                                     
 
     private void jBtn2ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+         EnteredNumber = jTXTDisplay1.getText()+jBtn2.getText();
+        jTXTDisplay1.setText(EnteredNumber);
     }                                     
 
     private void jBtn3ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        
+         EnteredNumber = jTXTDisplay1.getText()+jBtn3.getText();
+        jTXTDisplay1.setText(EnteredNumber);
     }                                     
 
     private void jBtnMulActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
+           operation = jBtnMul.getText();
+        
+        firstnum = Double.valueOf(jTXTDisplay1.getText());
+        jTXTDisplay1.setText("");
+        
     }                                       
 
     private void jBtn0ActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
+        
+         EnteredNumber = jTXTDisplay1.getText()+jBtn0.getText();
+        jTXTDisplay1.setText(EnteredNumber);
     }                                     
 
     private void jBtnPointActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
+        
+        String st = jTXTDisplay1.getText()+jBtnPoint.getText();
+        jTXTDisplay1.setText(st);
     }                                         
 
     private void jBtnplusActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
+        
+        operation = jBtnplus.getText();
+        
+        firstnum = Double.valueOf(jTXTDisplay1.getText());
+        jTXTDisplay1.setText("");
     }                                        
 
     private void jBtnDivActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
+        
+        operation = jBtnDiv.getText();
+        
+        firstnum = Double.valueOf(jTXTDisplay1.getText());
+        jTXTDisplay1.setText("");
     }                                       
 
     private void jBtnplusminusActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
+        if(jTXTDisplay1.getText().length()>1){
+        double op = Double.parseDouble(jTXTDisplay1.getText());
+        op = op*(-1);
+        jTXTDisplay1.setText(String.valueOf(op));
+        }
     }                                             
 
     /**
@@ -643,6 +768,8 @@ public class Resturants extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JButton CloseBtn;
+    private javax.swing.JButton CnvertBtn;
     private javax.swing.JButton jBtn0;
     private javax.swing.JButton jBtn1;
     private javax.swing.JButton jBtn2;
@@ -668,6 +795,7 @@ public class Resturants extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -678,6 +806,7 @@ public class Resturants extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private java.awt.Panel panel1;
     private java.awt.Panel panel2;
     private java.awt.Panel panel3;
