@@ -56,10 +56,11 @@ public class Resturants extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         panel3 = new java.awt.Panel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jTextField4 = new javax.swing.JTextField();
+        currencyCombobox = new javax.swing.JComboBox();
+        amountInputTextField = new javax.swing.JTextField();
         CnvertBtn = new javax.swing.JButton();
         CloseBtn = new javax.swing.JButton();
+        ShowValueLabel = new javax.swing.JLabel();
         panel4 = new java.awt.Panel();
         panel7 = new java.awt.Panel();
         jTextField8 = new javax.swing.JTextField();
@@ -221,38 +222,53 @@ public class Resturants extends javax.swing.JFrame {
 
         panel3.setBackground(new java.awt.Color(204, 204, 255));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose One item", "USA", "UK", "BDT", "INR", " " }));
+        currencyCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choose One item", "USA", "UK", "SLR", "INR" }));
+        currencyCombobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                currencyComboboxActionPerformed(evt);
+            }
+        });
 
         CnvertBtn.setText("Convert");
+        CnvertBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CnvertBtnActionPerformed(evt);
+            }
+        });
 
         CloseBtn.setText("Close");
+        CloseBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
         panel3.setLayout(panel3Layout);
         panel3Layout.setHorizontalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel3Layout.createSequentialGroup()
-                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel3Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField4)))
-                    .addGroup(panel3Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                .addGap(30, 30, 30)
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(currencyCombobox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel3Layout.createSequentialGroup()
                         .addComponent(CnvertBtn)
                         .addGap(18, 18, 18)
-                        .addComponent(CloseBtn)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addComponent(CloseBtn))
+                    .addComponent(amountInputTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ShowValueLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         panel3Layout.setVerticalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel3Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(currencyCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(amountInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ShowValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CnvertBtn)
                     .addComponent(CloseBtn))
@@ -673,10 +689,10 @@ public class Resturants extends javax.swing.JFrame {
                                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(23, 23, 23)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 82, Short.MAX_VALUE)
-                                .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                                .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
@@ -692,13 +708,10 @@ public class Resturants extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -873,6 +886,62 @@ public class Resturants extends javax.swing.JFrame {
         }
     }                                             
 
+    private void currencyComboboxActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        // TODO add your handling code here:
+        
+    }                                                
+
+    private void CnvertBtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+        
+        String currency = currencyCombobox.getSelectedItem().toString();
+        if(currency == null)
+        {
+            ShowValueLabel.setText("Enter an currency");
+        }
+        int value = Integer.parseInt(amountInputTextField.getText());
+        if(value<=0)
+        {
+            ShowValueLabel.setText("Enter an value!");
+        }
+        
+        switch (currency) {
+            case "USA":
+                {
+                    double bill = value*85;
+                    ShowValueLabel.setText("USA to BD : "+ String.valueOf(bill));
+                    break;
+                }
+            case "UK":
+                {
+                    double bill = value*110;
+                    ShowValueLabel.setText("UK to BD : "+ String.valueOf(bill));
+                    break;
+                }
+            case "INR":
+                {
+                    double bill = value*(1.5);
+                    ShowValueLabel.setText("INR to BD : "+ String.valueOf(bill));
+                    break;
+                }
+            case "SLR":
+                {
+                    double bill = value*(.85);
+                    ShowValueLabel.setText("SLR to BD : "+ String.valueOf(bill));
+                    break;
+                }
+        }
+            
+        
+        
+    }                                         
+
+    private void CloseBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        
+        ShowValueLabel.setText("");
+    }                                        
+
     /**
      * @param args the command line arguments
      */
@@ -911,6 +980,9 @@ public class Resturants extends javax.swing.JFrame {
     // Variables declaration - do not modify                     
     private javax.swing.JButton CloseBtn;
     private javax.swing.JButton CnvertBtn;
+    private javax.swing.JLabel ShowValueLabel;
+    private javax.swing.JTextField amountInputTextField;
+    private javax.swing.JComboBox currencyCombobox;
     private javax.swing.JButton jBtn0;
     private javax.swing.JButton jBtn1;
     private javax.swing.JButton jBtn2;
@@ -940,7 +1012,6 @@ public class Resturants extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -958,7 +1029,6 @@ public class Resturants extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
