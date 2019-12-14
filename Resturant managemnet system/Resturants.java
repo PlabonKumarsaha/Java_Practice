@@ -5,8 +5,6 @@
  */
 package resturant_s;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author PKS
@@ -26,6 +24,10 @@ public class Resturants extends javax.swing.JFrame {
     static double result = 0;
     static String operation = " ";
     static String EnteredNumber;
+    //double[] i;
+    double tot = 0;
+    double tot2 = 0;
+    double tot3 = 0;
     
 
     /**
@@ -38,11 +40,11 @@ public class Resturants extends javax.swing.JFrame {
     private void initComponents() {
 
         panel1 = new java.awt.Panel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBoxChickernBurger = new javax.swing.JCheckBox();
+        jCheckBoxPizza = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldChickenBurger = new javax.swing.JTextField();
+        jTextFieldPizza = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jCombDrink = new javax.swing.JComboBox();
@@ -53,7 +55,7 @@ public class Resturants extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jlabelCostOfDrinks = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabelCostOfMeal = new javax.swing.JLabel();
         jLabelDelieveryCost = new javax.swing.JLabel();
         panel3 = new java.awt.Panel();
         currencyCombobox = new javax.swing.JComboBox();
@@ -63,9 +65,9 @@ public class Resturants extends javax.swing.JFrame {
         ShowValueLabel = new javax.swing.JLabel();
         panel4 = new java.awt.Panel();
         panel7 = new java.awt.Panel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        jTextFieldSubTotal = new javax.swing.JTextField();
+        jTextFieldTax = new javax.swing.JTextField();
+        jTextFieldTotal = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -105,11 +107,36 @@ public class Resturants extends javax.swing.JFrame {
 
         panel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jCheckBox1.setText("Chicken Burger");
+        jCheckBoxChickernBurger.setText("Chicken Burger");
+        jCheckBoxChickernBurger.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxChickernBurgerMouseClicked(evt);
+            }
+        });
+        jCheckBoxChickernBurger.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxChickernBurgerActionPerformed(evt);
+            }
+        });
 
-        jCheckBox2.setText("Pizza");
+        jCheckBoxPizza.setText("Pizza");
+        jCheckBoxPizza.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxPizzaMouseClicked(evt);
+            }
+        });
+        jCheckBoxPizza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxPizzaActionPerformed(evt);
+            }
+        });
 
         jCheckBox3.setText("Sandwitch");
+        jCheckBox3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox3MouseClicked(evt);
+            }
+        });
 
         jLabel1.setText("Drinks");
 
@@ -121,6 +148,16 @@ public class Resturants extends javax.swing.JFrame {
         });
 
         jCheckBox4.setText("Tax");
+        jCheckBox4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox4MouseClicked(evt);
+            }
+        });
+        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox4ActionPerformed(evt);
+            }
+        });
 
         jCheckBoxHomeDevivery.setText("Home delivery");
         jCheckBoxHomeDevivery.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -144,16 +181,21 @@ public class Resturants extends javax.swing.JFrame {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox3)
-                            .addComponent(jCheckBox2)
-                            .addComponent(jCheckBox1)
+                            .addComponent(jCheckBoxPizza)
+                            .addComponent(jCheckBoxChickernBurger)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField3))
-                            .addComponent(jCombDrink, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(0, 8, Short.MAX_VALUE)
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextFieldPizza, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                                        .addComponent(jTextField3))
+                                    .addComponent(jCombDrink, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(jTextFieldChickenBurger, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(jCheckBox4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -165,12 +207,12 @@ public class Resturants extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBoxChickernBurger)
+                    .addComponent(jTextFieldChickenBurger, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBoxPizza)
+                    .addComponent(jTextFieldPizza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox3)
@@ -201,11 +243,12 @@ public class Resturants extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Cost of delievery");
 
-        jlabelCostOfDrinks.setText("Drink bill");
+        jlabelCostOfDrinks.setText("0.0");
 
-        jLabel9.setText("Cost of meal");
+        jLabelCostOfMeal.setText("0.0");
+        jLabelCostOfMeal.setToolTipText("");
 
-        jLabelDelieveryCost.setText("Devivery dost");
+        jLabelDelieveryCost.setText("0.0");
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
@@ -217,17 +260,20 @@ public class Resturants extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(18, 83, Short.MAX_VALUE)
-                        .addComponent(jlabelCostOfDrinks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addComponent(jLabelDelieveryCost, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelDelieveryCost, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 27, Short.MAX_VALUE))))
+                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jlabelCostOfDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel2Layout.createSequentialGroup()
+                                .addComponent(jLabelCostOfMeal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,15 +282,13 @@ public class Resturants extends javax.swing.JFrame {
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlabelCostOfDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)))
+                        .addComponent(jLabelCostOfMeal, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 32, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDelieveryCost, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -310,6 +354,9 @@ public class Resturants extends javax.swing.JFrame {
 
         panel7.setBackground(new java.awt.Color(204, 255, 255));
 
+        jTextFieldTax.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextFieldTax.setText("10");
+
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Sub Total :");
 
@@ -331,9 +378,9 @@ public class Resturants extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                    .addComponent(jTextField9)
-                    .addComponent(jTextField10))
+                    .addComponent(jTextFieldSubTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                    .addComponent(jTextFieldTax)
+                    .addComponent(jTextFieldTotal))
                 .addGap(44, 44, 44))
         );
         panel7Layout.setVerticalGroup(
@@ -341,18 +388,18 @@ public class Resturants extends javax.swing.JFrame {
             .addGroup(panel7Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel7Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldTax, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53))
         );
 
@@ -653,16 +700,41 @@ public class Resturants extends javax.swing.JFrame {
             .addGroup(panel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         panel5.setBackground(new java.awt.Color(153, 255, 255));
 
         jBtnTotal.setText("Total");
+        jBtnTotal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBtnTotalMouseClicked(evt);
+            }
+        });
 
         jBtnReceipt.setText("Receipt");
+        jBtnReceipt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBtnReceiptMouseClicked(evt);
+            }
+        });
+        jBtnReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnReceiptActionPerformed(evt);
+            }
+        });
 
         jBtnReset.setText("Reset");
+        jBtnReset.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBtnResetMouseClicked(evt);
+            }
+        });
+        jBtnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnResetActionPerformed(evt);
+            }
+        });
 
         jBtnExit.setText("Exit");
         jBtnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -677,25 +749,26 @@ public class Resturants extends javax.swing.JFrame {
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jBtnTotal)
-                .addGap(31, 31, 31)
-                .addComponent(jBtnReceipt)
-                .addGap(45, 45, 45)
-                .addComponent(jBtnReset)
-                .addGap(28, 28, 28)
-                .addComponent(jBtnExit)
+                .addComponent(jBtnTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jBtnReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(jBtnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(jBtnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnTotal)
-                    .addComponent(jBtnReceipt)
-                    .addComponent(jBtnReset)
-                    .addComponent(jBtnExit))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBtnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBtnReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBtnReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBtnTotal)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -715,15 +788,11 @@ public class Resturants extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addComponent(panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
@@ -751,8 +820,8 @@ public class Resturants extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -987,29 +1056,35 @@ public class Resturants extends javax.swing.JFrame {
         double cofee = 45;
         double IceTea = 10;
         double Icecofee = 55;
+        
         if(jCombDrink.getSelectedItem().equals("Cola"))
         {
-            jlabelCostOfDrinks.setText("Cost of drinks "+ String.valueOf(Cola));
+            tot2 = Cola;
+            jlabelCostOfDrinks.setText( String.valueOf(Cola));
         }
         else  if(jCombDrink.getSelectedItem().equals("Tea"))
         {
-             jlabelCostOfDrinks.setText("Cost of drinks "+ String.valueOf(Tea));
+            tot2 = Tea;
+             jlabelCostOfDrinks.setText( String.valueOf(Tea));
         }
          else  if(jCombDrink.getSelectedItem().equals("cofee"))
         {
-             jlabelCostOfDrinks.setText("Cost of drinks "+ String.valueOf(cofee));
+            tot2 = cofee;
+             jlabelCostOfDrinks.setText( String.valueOf(cofee));
         }
          else  if(jCombDrink.getSelectedItem().equals("Ice Tea"))
         {
-             jlabelCostOfDrinks.setText("Cost of drinks "+ String.valueOf(IceTea));
+            tot2 = IceTea;
+             jlabelCostOfDrinks.setText( String.valueOf(IceTea));
         }
          else  if(jCombDrink.getSelectedItem().equals("Ice cofee"))
         {
-             jlabelCostOfDrinks.setText("Cost of drinks "+ String.valueOf(Icecofee));
+             jlabelCostOfDrinks.setText( String.valueOf(Icecofee));
         }
          else  if(jCombDrink.getSelectedItem().equals("Apple juice"))
         {
-             jlabelCostOfDrinks.setText("Cost of drinks "+ String.valueOf(Applejuice));
+            tot2 = Applejuice;
+             jlabelCostOfDrinks.setText( String.valueOf(Applejuice));
         }
           else  if(jCombDrink.getSelectedItem().equals("choose One drink"))
         {
@@ -1033,14 +1108,169 @@ public class Resturants extends javax.swing.JFrame {
         if(jCheckBoxHomeDevivery.isSelected())
         {
             String pDelivery =String.format("%.2f", isDevivery);
-            jLabelDelieveryCost.setText(pDelivery+" is biled");
+            tot3 = 100;
+            jLabelDelieveryCost.setText(pDelivery);
         }
         else
         {
+            tot3 = 0;
             jLabelDelieveryCost.setText(null);
         }
         
     }                                                  
+
+    private void jBtnReceiptMouseClicked(java.awt.event.MouseEvent evt) {                                         
+        // TODO add your handling code here:
+         double qty1 = Double.parseDouble(jlabelCostOfDrinks.getText());
+        double qty2 = Double.parseDouble(jLabelCostOfMeal.getText());
+        double qty3 = Double.parseDouble(jLabelDelieveryCost.getText());
+        
+        jTextArea1.append("Resturant System \n"
+                + "Meal cost: "+qty2+"\n"+
+                "Drink cost : "+qty1 + "\n"+
+                "Delivery cost : "+qty3+"\n");
+    }                                        
+
+    private void jBtnReceiptActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        
+       
+        
+        
+        
+    }                                           
+
+    private void jBtnResetActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+    }                                         
+
+    private void jBtnResetMouseClicked(java.awt.event.MouseEvent evt) {                                       
+        // TODO add your handling code here:
+        jlabelCostOfDrinks.setText(null);
+        jLabelCostOfMeal.setText(null);
+        jLabelDelieveryCost.setText(null);
+        ShowValueLabel.setText(null);
+        jTextFieldTotal.setText(null);
+        jTextFieldTax.setText(null);
+        jTextFieldSubTotal.setText(null);
+        
+    }                                      
+
+    private void jCheckBoxChickernBurgerMouseClicked(java.awt.event.MouseEvent evt) {                                                     
+        // TODO add your handling code here:
+        double Meal = 0.0;
+        if(!jLabelCostOfMeal.getText().equals("Cost of meal"))
+        { Meal = Double.parseDouble(jLabelCostOfMeal.getText());}
+        
+        double chickenBurger = Double.parseDouble(jTextFieldChickenBurger.getText());
+        double isChickenBurger =300.0;
+        if(jCheckBoxChickernBurger.isSelected())
+        {
+                       
+             tot =(chickenBurger*isChickenBurger)+Meal;
+            String meal =String.format("%.2f", tot);
+            jLabelCostOfMeal.setText(meal);
+            
+        }
+    }                                                    
+
+    private void jCheckBoxChickernBurgerActionPerformed(java.awt.event.ActionEvent evt) {                                                        
+        // TODO add your handling code here:
+        
+        double Meal = 0.0;
+        if(!jLabelCostOfMeal.getText().equals("Cost of meal"))
+        { Meal = Double.parseDouble(jLabelCostOfMeal.getText());}
+        
+        double Pizza = Double.parseDouble(jTextFieldPizza.getText());
+        double isPizza =500.0;
+        if(jCheckBoxPizza.isSelected())
+        {
+                       
+             tot =(Pizza*isPizza)+Meal;
+            String meal =String.format("%.2f", tot);
+            jLabelCostOfMeal.setText(meal);
+            
+        }
+    }                                                       
+
+    private void jCheckBoxPizzaMouseClicked(java.awt.event.MouseEvent evt) {                                            
+        // TODO add your handling code here:
+        
+          
+        double Meal = 0.0;
+        if(!jLabelCostOfMeal.getText().equals("Cost of meal"))
+        { Meal = Double.parseDouble(jLabelCostOfMeal.getText());}
+        
+        double Pizza = Double.parseDouble(jTextFieldPizza.getText());
+        double isPizza =500.0;
+        if(jCheckBoxPizza.isSelected())
+        {
+                       
+             tot =(Pizza*isPizza)+Meal;
+            String meal =String.format("%.2f", tot);
+            jLabelCostOfMeal.setText(meal);
+            
+        }
+        
+        
+    }                                           
+
+    private void jCheckBox3MouseClicked(java.awt.event.MouseEvent evt) {                                        
+        // TODO add your handling code here:
+        
+          double Meal = 0.0;
+         Meal = Double.parseDouble(jLabelCostOfMeal.getText());
+        
+        double sandwitchBurger = Double.parseDouble(jTextField3.getText());
+        double isSandwitch =100.0;
+        if(jCheckBox3.isSelected())
+        {
+                       
+            double tot =(sandwitchBurger*isSandwitch)+Meal;
+            String meal =String.format("%.2f", tot);
+            jLabelCostOfMeal.setText(meal);
+            
+        }
+    }                                       
+
+    private void jCheckBoxPizzaActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+    }                                              
+
+    private void jBtnTotalMouseClicked(java.awt.event.MouseEvent evt) {                                       
+        // TODO add your handling code here:
+        
+        double total = Double.parseDouble(jLabelCostOfMeal.getText());
+        double total2 =  Double.parseDouble(jlabelCostOfDrinks.getText());
+        double total3 =  Double.parseDouble(jLabelDelieveryCost.getText());
+        
+        double allTotal =total+total2+total3;
+        jTextFieldSubTotal.setText(String.valueOf(allTotal));
+        
+    }                                      
+
+    private void jCheckBox4MouseClicked(java.awt.event.MouseEvent evt) {                                        
+        // TODO add your handling code here:
+        
+        double tax = tot+tot2+tot3;
+        tax =tax/100;
+        String ctax = String.format("%.2f", tax);
+        jTextFieldTax.setText(ctax);
+         double total = Double.parseDouble(jLabelCostOfMeal.getText());
+        double total2 =  Double.parseDouble(jlabelCostOfDrinks.getText());
+        double total3 =  Double.parseDouble(jLabelDelieveryCost.getText());
+        
+        double allTotal =total+total2+total3;
+        jTextFieldTax.setText(String.valueOf(allTotal/100));
+        double a = allTotal +(allTotal/100);
+        
+       jTextFieldTotal.setText(String.valueOf(a));
+        
+    }                                       
+
+    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
+    }                                          
 
     /**
      * @param args the command line arguments
@@ -1106,11 +1336,11 @@ public class Resturants extends javax.swing.JFrame {
     private javax.swing.JButton jBtnplus;
     private javax.swing.JButton jBtnplusminus;
     private javax.swing.JButton jButtonRmv;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBoxChickernBurger;
     private javax.swing.JCheckBox jCheckBoxHomeDevivery;
+    private javax.swing.JCheckBox jCheckBoxPizza;
     private javax.swing.JComboBox jCombDrink;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -1120,19 +1350,19 @@ public class Resturants extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelCostOfMeal;
     private javax.swing.JLabel jLabelDelieveryCost;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTXTDisplay1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextFieldChickenBurger;
+    private javax.swing.JTextField jTextFieldPizza;
+    private javax.swing.JTextField jTextFieldSubTotal;
+    private javax.swing.JTextField jTextFieldTax;
+    private javax.swing.JTextField jTextFieldTotal;
     private javax.swing.JLabel jlabelCostOfDrinks;
     private java.awt.Panel panel1;
     private java.awt.Panel panel2;
