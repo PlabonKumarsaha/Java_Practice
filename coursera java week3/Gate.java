@@ -27,6 +27,7 @@ public class Gate {
     }
 
     public void close() {
+        mSwing = 0;
     }
 
     public int getSwingDirection() {
@@ -39,15 +40,15 @@ public class Gate {
 
     @Override
     public String toString() {
-        switch (getSwingDirection()) {
-            case -1:
-                return "This gate is open and swings to exit the pen only";
+        switch (mSwing) {
             case 0:
                 return "This gate is closed";
             case 1:
                 return "This gate is open and swings to enter the pen only";
+            case -1:
+                return "This gate is open and swings to exit the pen only";
             default:
-                return "This gate has an invalid swing direction";
+                return "";
         }
     }
 }
