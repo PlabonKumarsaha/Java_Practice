@@ -7,7 +7,7 @@ public enum ClassToTest {
     /**
      * Test the FillTheCorral class.
      */
-    Corral,
+    Corral,corral2
 
     /**
      * Test the HerdManager class.
