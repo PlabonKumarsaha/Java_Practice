@@ -18,9 +18,6 @@ public class UserIndex extends javax.swing.JFrame {
     
     
 
-    /**
-     * Creates new form UserIndex
-     */
     public UserIndex() {
         initComponents();
     }
