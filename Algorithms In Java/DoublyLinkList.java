@@ -53,12 +53,43 @@ public class LinkedList {
       
       public void insertInLastPosition(String homeOwnerName,int houseNumber){
           
-      }
-      
-      public boolean inserAfterKey(String homeOwnerName,int houseNumber,int key){
+          Neighbour theNewLink = new Neighbour(homeOwnerName,houseNumber);
           
-          return false;
+           if(isEmpty()){
+              
+              firstLink = theNewLink;
+          } else{
+          lastLink.next = theNewLink;
+         // firstLink = theNewLink;
+           }
+           lastLink =theNewLink;
+          
       }
+      public boolean isEmpty(){
+          return(firstLink ==null);
+      }
+      public void display(){
+        Neighbour theLink = firstLink;
+
+        while(theLink != null){
+
+                 
+
+            theLink.display();
+
+                 
+
+            System.out.println("Next Link: " + theLink.next);
+
+                 
+
+            theLink = theLink.next;    
+
+            System.out.println();
+
+        }
+  
+     
   }
   
   
@@ -66,7 +97,8 @@ public class LinkedList {
         
         
        
-    }
+    }}
+    
           
     
 }
