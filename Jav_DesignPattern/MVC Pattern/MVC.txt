@@ -1,0 +1,46 @@
+MVC - Data ,interface ,coordinator.
+
+## System
+Model : data and method to work with it
+View : The interface
+Controller : Coorinates interactions between View and Model
+
+## Code brief
+
+1. Here,the model class is CalculatorModel which has a filed calcuationValue. This
+field just stores the value of two numbers and return the value(acess to the data) in getCalculationvalue method!
+
+2. Here in the CalculatorView all the views like Lablebs,TextFields,panels are created. All of their component placements are there.
+In the code there are three textFields named firstNum,secondNum and calcuated solution. So the getter method to get all these inputted number and setter
+method for the output field method are created. Last there will be a addCalcuationListener that takes the button click.
+
+3.At Last the CalculatorController connects the model and View part together.So first we have to instancate the model class and view class.
+at last this snippet will connect all the codes :
+  class CalculateListener implements ActionListener{
+        
+      
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           
+       try{
+           int firstNumber, secondNumber = 0;
+           firstNumber = calculatorView.getFirstNumber();
+           secondNumber = calculatorView.getSecondNumber();
+           calculatorModel.addTwoNumbers(firstNumber, secondNumber);
+           calculatorView.setCalcSolutionNumber(calculatorModel.getCalculationValue());
+           
+
+           
+       } catch(Exception exc){
+           exc.printStackTrace();
+       }
+        
+        }
+
+4.In the main method we must do this to show the result : 
+ CalculatorView theView = new CalculatorView();
+        CalculatorModel theModel = new CalculatorModel();
+        CalculatorController thecontroller = new CalculatorController(theView,theModel);
+        theView.setVisible(true);
+
+further deatils : http://www.newthinktank.com/2013/02/mvc-java-tutorial/
