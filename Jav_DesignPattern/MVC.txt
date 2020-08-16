@@ -42,3 +42,5 @@ at last this snippet will connect all the codes :
         CalculatorModel theModel = new CalculatorModel();
         CalculatorController thecontroller = new CalculatorController(theView,theModel);
         theView.setVisible(true);
+
+further deatils : http://www.newthinktank.com/2013/02/mvc-java-tutorial/
