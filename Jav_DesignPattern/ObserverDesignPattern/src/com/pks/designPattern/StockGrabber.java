@@ -11,15 +11,11 @@ public class StockGrabber implements Subject{
 
     public StockGrabber(){
         observers = new ArrayList<Observer>();
-
-
     }
 
 
     @Override
     public void register(Observer newObserver) {
-
-
         observers.add(newObserver);
 
     }

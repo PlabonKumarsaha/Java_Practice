@@ -15,5 +15,28 @@ public class Main {
         stockGrabber.setGooglePrice(676.40);
 
 
+        StockObserver observer2 = new StockObserver(stockGrabber);
+
+        stockGrabber.setIBMPrice(197.00);
+        stockGrabber.setApplePrice(677.60);
+        stockGrabber.setGooglePrice(676.40);
+
+        // Delete one of the observers
+        // stockGrabber.unregister(observer2);
+        //the above one will make that unsubscribed
+
+
+        // Delete one of the observers
+        // stockGrabber.unregister(observer2);
+        stockGrabber.setIBMPrice(197.00);
+        stockGrabber.setApplePrice(677.60);
+        stockGrabber.setGooglePrice(676.40);
+
+        // Create 3 threads using the Runnable interface
+        // GetTheStock implements Runnable, so it doesn't waste
+        // its one extendable class option
+
+
+
     }
 }
