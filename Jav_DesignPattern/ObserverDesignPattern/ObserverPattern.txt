@@ -1,0 +1,25 @@
+Used when you need many other objects to reieve an update when another object changes.
+
+-Observer pattern is used when there is one-to-many relationship between objects such as if one object is modified,
+ its depenedent objects are to be notified automatically.Observer pattern falls under behavioral pattern category.
+- Ex : In stock market thousands of stocks need to send update to object representing indiviusal stock.
+so you need to send updates to multiple observer/subscribers.
+
+- This is whole thing is loosly coupled. The publisher or subscibed doesn't need to know about each other.
+
+- Negative :may send unrealted feeds to some subscribers.
+
+- The subjects : register,unregiser and notify observer.
+
+-step 1 :
+- Make an intrerface/class (Subject class) (ex :Subject) with the relevant methods which will take the Observer obejct as a paramerter.
+
+- create an Observer class that will have the update method absatacted.
+
+- Create concrete observer classes
+
+-Use Subject and concrete observer objects.
+
+-ref :https://www.tutorialspoint.com/design_pattern/observer_pattern.htm
+
+
