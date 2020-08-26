@@ -1,0 +1,33 @@
+Singleton pattern involves a single class which is responsible to create an object while making sure that only single object gets created. 
+This class provides a way to access its only object which can be accessed directly without need to instantiate the object of the class.
+
+
+-> Advantage : Saves memory because object is not created at each request. Only single instance is reused again and again.
+
+-> Usage : Singleton pattern is mostly used in multi-threaded and database applications. It is used in logging, caching, thread pools, configuration settings etc.
+
+
+# Process
+
+Step1 : Create a Singleton Class. There createa an instane of that class. Make that class constructor private so no one can directly instantiate it.Make an getInstancee method
+which will return the insatnce(SingleObject ).
+
+steap2 : Get the only object from the singleton class.
+
+Creating instance in the following manner will give you compiler error:
+ 
+      //Compile Time Error: The constructor SingleObject() is not visible
+      SingleObject object = new SingleObject();
+
+So we must take another step.We have to call the getInstance method to create the insatnce.
+
+//Get the only object available
+      SingleObject object = SingleObject.getInstance();
+
+//The insatrnciated object can be used noramally like : 
+
+ //show the message
+      object.showMessage();
+
+## for JDBC login : https://www.javatpoint.com/singleton-design-pattern-in-java
+
