@@ -10,6 +10,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.io.OutputStreamWriter;
+//https://dzone.com/articles/how-to-implement-get-and-post-request-through-simp
 
 public class Main {
 
